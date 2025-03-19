@@ -1,7 +1,7 @@
-# Gra Nim w Pythonie
+# Nim Game in Python
 
-Gra w Nim zaimplementowana w Pythonie. Można grać przeciwko komputerowi lub symulować rozgrywkę AI vs AI.
+A Nim game implemented in Python. You can play against the computer or simulate an AI vs AI match.
 
-## Jak uruchomić?
+## How to run?
 ```bash
 python main.py

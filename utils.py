@@ -3,49 +3,49 @@ from nim import Nim
 
 
 def human_vs_computer():
-    """Gra człowiek vs komputer"""
-    n = int(input("Podaj liczbę stosów: "))
+    """Human vs Computer game"""
+    n = int(input("Enter the number of stacks: "))
     stacks = list(
-        map(int, input(f"Podaj {n} wysokości stosów oddzielone spacją: ").split())
+        map(int, input(f"Enter {n} stack heights separated by spaces: ").split())
     )
 
     game = Nim(stacks)
-    turn = 0  # 0 - gracz, 1 - komputer
+    turn = 0  # 0 - player, 1 - computer
 
     while not game.is_empty():
         game.print_stacks()
-        if turn == 0:  # Ruch gracza
+        if turn == 0:  # Player's move
             while True:
                 try:
-                    stack = int(input("Wybierz stos: "))
-                    remove = int(input("Ile chcesz usunąć? "))
+                    stack = int(input("Choose a stack: "))
+                    remove = int(input("How many do you want to remove? "))
                     if game.take_from_stack(stack, remove):
                         break
                     else:
-                        print("Niepoprawny ruch, spróbuj ponownie.")
+                        print("Invalid move, try again.")
                 except ValueError:
-                    print("Podaj poprawne liczby!")
-        else:  # Ruch komputera
+                    print("Enter valid numbers!")
+        else:  # Computer's move
             game.computer_move()
 
-        turn = 1 - turn  # Zmiana gracza
+        turn = 1 - turn  # Switch player
 
-    print("Koniec gry! " + ("Gracz wygrał!" if turn == 1 else "Komputer wygrał!"))
+    print("Game over! " + ("Player wins!" if turn == 1 else "Computer wins!"))
 
 
 def computer_vs_computer():
-    """Symulacja gry komputer vs komputer"""
+    """Simulation of computer vs computer game"""
     stacks = [random.randint(1, 10) for _ in range(random.randint(3, 6))]
     game = Nim(stacks)
 
-    print("Początkowy stan gry:")
+    print("Initial game state:")
     game.print_stacks()
 
-    turn = 0  # 0 - komputer 1, 1 - komputer 2
+    turn = 0  # 0 - computer 1, 1 - computer 2
 
     while not game.is_empty():
         game.computer_move()
         game.print_stacks()
-        turn = 1 - turn  # Zmiana gracza
+        turn = 1 - turn  # Switch player
 
-    print("Koniec gry! Wygrał komputer " + ("1" if turn == 1 else "2"))
+    print("Game over! Computer " + ("1" if turn == 1 else "2") + " wins!")
