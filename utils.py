@@ -10,10 +10,20 @@ def create_game():
     return Nim(stacks)
 
 
+def decide_player():
+    """Asks user to specify who should start the game"""
+    while True:
+        choice = input("Who should start the game, (p)layer or (c)omputer? ").lower()
+        if choice in ['p', 'c']:
+            break
+        print("Invalid input!")
+    return 0 if choice == 'p' else 1
+
+
 def human_vs_computer():
     """Human vs Computer game"""
     game = create_game()
-    turn = 0  # 0 - player, 1 - computer
+    turn = decide_player()
 
     while not game.is_empty():
         game.print_stacks()
