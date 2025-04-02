@@ -19,7 +19,7 @@ class Nim:
     def print_stacks(self):
         """Prints the current state of the stacks"""
         for index, count in enumerate(self.stacks):
-            print(f"Stack {index}: " + "0 " * count)
+            print(f"Stack {index}: " + ". " * count)
         print(f"Nim Sum: {self.nim_sum()}")
 
     def nim_sum(self):
