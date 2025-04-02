@@ -2,14 +2,17 @@ import random
 from nim import Nim
 
 
+def create_game():
+    """Creates a new game from user input"""
+    stacks = list(
+        map(int, input(f"Enter stack heights separated by spaces: ").split())
+    )
+    return Nim(stacks)
+
+
 def human_vs_computer():
     """Human vs Computer game"""
-    n = int(input("Enter the number of stacks: "))
-    stacks = list(
-        map(int, input(f"Enter {n} stack heights separated by spaces: ").split())
-    )
-
-    game = Nim(stacks)
+    game = create_game()
     turn = 0  # 0 - player, 1 - computer
 
     while not game.is_empty():
