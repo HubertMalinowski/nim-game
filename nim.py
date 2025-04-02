@@ -20,6 +20,7 @@ class Nim:
         """Prints the current state of the stacks"""
         for index, count in enumerate(self.stacks):
             print(f"Stack {index}: " + "0 " * count)
+        print(f"Nim Sum: {self.nim_sum()}")
 
     def nim_sum(self):
         """Calculates the XOR of all stacks (crucial for the Nim strategy)"""
